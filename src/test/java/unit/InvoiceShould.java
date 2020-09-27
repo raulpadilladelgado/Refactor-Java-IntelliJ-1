@@ -1,6 +1,6 @@
 package unit;
 
-import moveResponsibility.InvoiceService;
+import moveResponsibility.Invoice;
 import org.junit.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -9,10 +9,9 @@ public class InvoiceShould {
 
     @Test
     public void calculate_net_amount() throws Exception {
-        InvoiceService invoiceService = new InvoiceService();
+        Invoice invoice = new Invoice("100", "10");
 
-        String result = invoiceService
-                        .calculateNetAmount("100", "10");
+        String result = invoice.calculateNetAmount();
 
         assertThat(result).isEqualTo("90.0");
     }
