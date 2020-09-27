@@ -1,21 +1,28 @@
 package implementationChange;
 
-public class ShoppingCart {
-    private int price;
+import java.util.ArrayList;
+import java.util.List;
 
-    public void add(int price) {
-        this.price = price;
+public class ShoppingCart {
+    private List<Price> prices = new ArrayList<>();
+
+    public void add(Price price){
+        this.prices.add(price);
     }
 
-    public int calculateTotalPrice() {
-        return price;
+    public Price calculateTotalPrice() {
+        int result = 0;
+        for (Price price: prices) {
+            result = price.getValue();
+        }
+        return new Price(result);
     }
 
     public boolean hasDiscount() {
-        return price >= 100;
+        return calculateTotalPrice().getValue() >= 100;
     }
 
     public int numberOfProducts() {
-        return 1;
+        return prices.size();
     }
 }
