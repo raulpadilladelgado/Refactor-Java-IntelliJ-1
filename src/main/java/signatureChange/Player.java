@@ -5,28 +5,26 @@ public class Player {
     private int score;
     private Role role;
 
-    public Player(Role role, String name){
+
+    public Player(Role role, String name) {
         this.role = role;
         this.name = name;
         this.score = 0;
     }
 
-    public Player(Role role, String name, int score){
-        this.role = role;
-        this.name = name;
-        this.score = score;
-    }
-
-    public void play(){
-        if (role == Role.Dragon){
+    public void play() {
+        if (role == Role.Dragon) {
             score += 20;
-        }
-        else {
+        } else {
             score = score - 10;
         }
     }
 
-    public int getScore(){
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getScore() {
         return score;
     }
 }
